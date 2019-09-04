@@ -1,9 +1,23 @@
-const express = require('express');
+const express = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
 
-app.get('/', (req,res) => res.send('API Running OK'))
+//Connect to DB
+connectDB();
+
+//Init middleware
+app.use(express.json({ extended: false }));
+
+//define routes
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/posts", require("./routes/api/posts"));
+app.use("/api/google", require("./routes/api/google"));
+
+app.get("/", (req, res) => res.send("API Running OK"));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));

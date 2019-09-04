@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://masternick:mongodbmasternick@devcon-otcyh.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secretToken",
+  "githubClientId": "706ca327ea741b60a5e1",
+  "githubSecret": "7e9b14cfbb11b5584ab7e57e14ef0100be40a158"
+}
